@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, OnInit, Sanitizer, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Bookmark } from 'src/Model/bookmark/bookmark';
+import { BookmarkService } from 'src/Services/bookmark.service';
 import { BrowserService } from 'src/Services/browser.service';
 
 @Component({
@@ -14,6 +16,7 @@ export class BrowserComponent implements OnInit, OnChanges {
   safeUrl: any = '';
 
   constructor(private browser_service: BrowserService,
+        private bookmarks_Service: BookmarkService,
         private sanitize: DomSanitizer
     ) { }
 

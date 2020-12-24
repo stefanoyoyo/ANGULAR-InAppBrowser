@@ -1,3 +1,24 @@
-<div style="width: 100%; height: 5%; background:pink; ">
+<div style="width: 100%; height: 5.75%; background:pink;" 
+[style.height] = '(isBookmarkBarOpen) ? "5.75%" : "0.5%"'
+[style.marginTop]="(isBookmarkBarOpen) ? '-1.2%' : '0'"
 
+>
+    <div style="width: 100%; height: 66%;"
+    [style.marginTop]="(isBookmarkBarOpen) ? '-1%' : '0'"
+    >
+        <div class="bookmarkSeries" *ngFor="let bookmark of this.outerBookmarks">
+            <div  id="bookmark" style="/*width:10%;*/ background: red;" *ngIf="isBookmarkBarOpen" (click)="bookmarkClicked(bookmark)">
+                <p style="font-size: 100%; text-align: center; border: 1.5px solid black;">{{bookmark.name}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div (click)="showHideBookmarks()" 
+    style="width: 100%; background:yellow; display: flex; justify-content: center;"
+    >
+        <img style="width: 1.5%;" 
+        [src] = "openCloseImage"
+        [style.marginTop] = '(isBookmarkBarOpen) ? "0" : "-0.8%"'
+        >
+    </div>
 </div>
