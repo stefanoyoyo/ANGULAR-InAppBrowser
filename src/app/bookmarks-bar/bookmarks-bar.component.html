@@ -7,11 +7,16 @@
     [style.marginTop]="(isBookmarkBarOpen) ? '-1%' : '0'"
     >
         <div class="bookmarkSeries" *ngFor="let bookmark of this.outerBookmarks">
-            <div  id="bookmark" style="/*width:10%;*/ background: red;" *ngIf="isBookmarkBarOpen" (click)="bookmarkClicked(bookmark)">
-                <p style="font-size: 100%; text-align: center; border: 1.5px solid black;">{{bookmark.name}}</p>
+            <div id="{{'bookmark-' + bookmark.name}}" style="/*width:10%;*/ background: red;" *ngIf="isBookmarkBarOpen" (click)="bookmarkClicked(bookmark)">
+                <p id="{{'bookmark-text-' + bookmark.name}}" style="font-size: 100%; text-align: center; border: 1.5px solid black;">{{bookmark.name}}</p>
             </div>
         </div>
+        <app-web-proxy 
+        *ngIf="isBookmarkBarOpen"
+        style="float: right; position: relative; transform: translateY(102%); margin-right: 2%; background: red;"
+        ></app-web-proxy>
     </div>
+
 
     <div (click)="showHideBookmarks()" 
     style="width: 100%; background:yellow; display: flex; justify-content: center;"

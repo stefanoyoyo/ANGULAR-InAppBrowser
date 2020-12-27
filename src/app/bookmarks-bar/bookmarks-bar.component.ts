@@ -58,6 +58,15 @@ export class BookmarksBarComponent implements OnInit {
       });
     }
 
+    
+    /**Metodo che ritorna dove l'app è attualmente eseguita */
+    getEnvironment(): string {
+      console.log('getEnvironment()')
+      let env = ''; 
+      const url = window.location.href; 
+      return url; 
+    }
+
 
     /**Metodo che consente di gestire il click su un segnalibro */
     bookmarkClicked(bookmarkClicked :any) {
@@ -67,13 +76,6 @@ export class BookmarksBarComponent implements OnInit {
       this.bookmarks_Service.bookmarkClicked.emit(bookmark);
     }
 
-    /**Metodo che ritorna dove l'app è attualmente eseguita */
-    getEnvironment(): string {
-      console.log('getEnvironment()')
-      let env = ''; 
-      const url = window.location.href; 
-      return url; 
-    }
 
     /**Metodo che consente di monitorar ela ricezione dei segnalibri */
     monitorBookmarkReceive() {

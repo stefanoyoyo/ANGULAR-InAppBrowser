@@ -1,0 +1,12 @@
+<!-- <span style="border: 1.5px solid black;">web-broxy works!</span> -->
+
+<!-- <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+</select> -->
+
+<select [(ngModel)]="choosenProxy" (change)="manageChoosenProxy(choosenProxy)" title="Scegli un proxy se lo desideri" name="Proxy da usare" id="proxies">
+    <option *ngFor="let proxy of webProxies">{{proxy.name}}</option>
+</select>

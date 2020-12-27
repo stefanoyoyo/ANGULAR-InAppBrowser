@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "url": "http://localhost:4200/",
+        "category": "InAppBrowser",
+        "name": "Bottone Apprendistato",
+        "description":"Cambio il colore del bottone",
+        "elementOnDom": "p#bookmark-text-Apprendistato",
+        "cssClass" : "background",
+        "cssToApply" : "aqua",
+        "nodeProperty": null,
+        "nodeValue" : null
+    },
+    {
+        "id": 1,
+        "url": "http://localhost:4200/",
+        "category": "InAppBrowser",
+        "name": "Bottone Google", 
+        "description":"Cambio il colore  del bottone",
+        "elementOnDom": "p#bookmark-text-Google",
+        "cssClass" : "background",
+        "cssToApply" : "blueviolet",
+        "nodeProperty": null,
+        "nodeValue" : null
+    },
+    {
+        "id": 2,
+        "url": "http://localhost:4200/",
+        "category": "InAppBrowser",
+        "name": "Testo input", 
+        "description":"Recupero il testo della input",
+        "elementOnDom": "input.ng-valid.ng-dirty.ng-touched",
+        "cssClass" : null,
+        "cssToApply" : null,
+        "nodeProperty": "value",
+        "nodeValue" : null
+    },
+    {
+        "id": 3,
+        "url": "https://andreagaleazzi.com/",
+        "category": "Andrea Galeazzi",
+        "name": "Bottone iscritivi al canale", 
+        "description":"Nascondo il bottone di iscrizione al canale",
+        "elementOnDom": "button.mercatino-toggle",
+        "cssClass" : "visibility",
+        "cssToApply" : "hidden",
+        "nodeProperty": null,
+        "nodeValue" : null
+    },
+    {
+        "id": 4,
+        "url": "https://andreagaleazzi.com/",
+        "category": "Andrea Galeazzi",
+        "name": "Immagine di copertina", 
+        "description":"Aumento l'altezza dell'immagine di copertina",
+        "elementOnDom": ".tophead-img",
+        "cssClass" : "height",
+        "cssToApply" : "1000px",
+        "nodeProperty": null,
+        "nodeValue" : null
+    }
+]

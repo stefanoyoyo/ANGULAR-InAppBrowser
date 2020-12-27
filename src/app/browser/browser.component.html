@@ -1,3 +1,9 @@
 <div style="width: 100%; height: 100%; background: aqua;">
-    <iframe [src]="safeUrl" height="100%" width="100%"></iframe>
+    <iframe #iframePage id="iframePage" [src]="safeUrl" [innerHtml]="htmlFromProxy" height="100%" width="100%">
+        <app-manage-page-info [iframeInput] = "iframeHtml" [url]="url" [innerHtml]="htmlFromProxy"></app-manage-page-info>
+    </iframe>
+
+    <!-- <div #iframePage id="iframePage" [src]="safeUrl" [outerHtml]="htmlFromProxy" height="100%" width="100%">
+        <app-manage-page-info [iframeInput] = "iframeHtml" [url]="url" [innerHtml]="htmlFromProxy"></app-manage-page-info>
+    </div> -->
 </div>
