@@ -75,6 +75,21 @@ export class BrowserComponent implements OnInit, OnChanges, AfterViewInit {
         this.getHtmlThoughtProxyScrapestack(this.url);
         console.log(this.iframePage_ref);
         break; 
+      case 'Local Node proxy': 
+        const proxyToUse: any = this.getProxyToUseByName('Local Node proxy');
+        const message = {  url: this.url };
+        const messageAsStr = JSON.stringify(message);
+        const promise = this.http_service.post(proxyToUse.url,messageAsStr ).toPromise();
+        promise
+          .then((message) => {
+            let webSiteHtml: any = message;
+            console.log(webSiteHtml);
+            this.insertHtmlInIframe('iframePage', webSiteHtml);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        break;
     }
   }
 

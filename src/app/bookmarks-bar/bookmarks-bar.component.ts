@@ -13,6 +13,7 @@ export class BookmarksBarComponent implements OnInit {
   isBookmarkBarOpen: boolean = true;  
   openCloseImage: string = "/assets/Images/bookmarks/expand_less.svg";
   outerBookmarks: any;
+  availableProxies: any;
 
   constructor(private bookmarks_Service: BookmarkService, 
     private http_service: HttpClient) { }
@@ -72,8 +73,9 @@ export class BookmarksBarComponent implements OnInit {
     bookmarkClicked(bookmarkClicked :any) {
       console.log('bookmarkClicked(event)');
       console.log(bookmarkClicked);
-      const bookmark: Bookmark = new Bookmark(bookmarkClicked.id, bookmarkClicked.name, bookmarkClicked.url, bookmarkClicked.bookmarkPath);
+      const bookmark: Bookmark = new Bookmark(bookmarkClicked.id, bookmarkClicked.name, bookmarkClicked.url, bookmarkClicked.bookmarkPath, bookmarkClicked.availableProxies);
       this.bookmarks_Service.bookmarkClicked.emit(bookmark);
+      this.availableProxies = bookmarkClicked.availableProxies;
     }
 
 

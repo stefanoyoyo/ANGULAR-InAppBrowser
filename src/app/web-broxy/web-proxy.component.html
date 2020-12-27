@@ -8,5 +8,10 @@
 </select> -->
 
 <select [(ngModel)]="choosenProxy" (change)="manageChoosenProxy(choosenProxy)" title="Scegli un proxy se lo desideri" name="Proxy da usare" id="proxies">
-    <option *ngFor="let proxy of webProxies">{{proxy.name}}</option>
+    <option *ngFor="let proxy of webProxies">
+        <span>{{proxy.name}}</span>
+        <!-- <span [disabled]="true" *ngIf="!this.availableProxies.includes(proxy.name)">{{proxy.name}}</span> -->
+    </option>
 </select>
+
+<!-- *ngIf="this.availableProxies.includes(proxy.name)" -->

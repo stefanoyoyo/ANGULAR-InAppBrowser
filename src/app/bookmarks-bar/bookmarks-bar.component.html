@@ -12,6 +12,7 @@
             </div>
         </div>
         <app-web-proxy 
+        [availableProxies] = "availableProxies"
         *ngIf="isBookmarkBarOpen"
         style="float: right; position: relative; transform: translateY(102%); margin-right: 2%; background: red;"
         ></app-web-proxy>

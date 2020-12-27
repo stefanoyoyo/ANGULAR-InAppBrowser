@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ProxyService } from 'src/Services/proxy.service';
 
 @Component({
@@ -7,11 +7,18 @@ import { ProxyService } from 'src/Services/proxy.service';
   templateUrl: './web-proxy.component.html',
   styleUrls: ['./web-proxy.component.scss']
 })
-export class WebProxyComponent implements OnInit {
+export class WebProxyComponent implements OnInit, OnChanges {
   @Input() choosenWebProxy: string = '';
+  @Input() availableProxies: string[] = new Array<string>();
   webProxies: any[] = new Array<any>();
+  choosenProxy: string = '';
   constructor(private http_service: HttpClient, 
               private proxy_service: ProxyService) { }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+  }
 
   ngOnInit(): void {
     this.getWebProxies();
@@ -52,6 +59,7 @@ export class WebProxyComponent implements OnInit {
             this.initWebProxies()
             this.webProxies = webProxies;
             this.proxy_service.choosenProxy = webProxies[0];
+            this.choosenProxy = webProxies[0].name;
           })
           .catch((error: any) => {
             console.log(error);});
@@ -61,7 +69,7 @@ export class WebProxyComponent implements OnInit {
     /**Metodoc he permette di comunicare ad app-component il proxy selezionato */
     manageChoosenProxy(event: string) {
       console.log('manageChoosenProxy()');
-      this.proxy_service.choosenProxy = event; 
+      this.proxy_service.choosenProxy = this.choosenProxy = event; 
     }
 
 
